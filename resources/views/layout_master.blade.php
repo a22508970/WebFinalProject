@@ -19,7 +19,7 @@
                     <li class="nav-item"><a class="nav-link" href="">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="">Booking</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('pages.about')}}">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="">Contact</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('admin.home') }}">Admin</a></li>
                 </ul>
