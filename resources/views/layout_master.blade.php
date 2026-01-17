@@ -7,15 +7,15 @@
 
     <link rel="icon" type="image/x-icon" href="{{asset('images/identity/MedPharma_logof.png')}}">
 
-    <script src="{{ asset('js/script.js') }}"></script>
-
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    <script src="{{ asset('js/script.js') }}"></script>
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
+<body class="bg-light-custom">
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid px-4 px-lg-5">
             <a class="navbar-brand" href="{{route('client.home')}}">
                 <img src="{{ asset('images/identity/logo_only.png') }}" alt="MedPharma Logo"
                     class="d-inline-block logo">
@@ -55,13 +55,19 @@
         </div>
     </nav>
 
-    <div class="container py-4">
+    <div class="container py-4 my-4">
         @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
 
         @yield('content')
     </div>
+
+    <footer class="footer text-center">
+        <div class="container-fluid">
+            <p class="mb-0">&copy; {{ date('Y') }} MedPharma Solutions. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
