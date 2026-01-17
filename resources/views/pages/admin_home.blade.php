@@ -1,58 +1,35 @@
 @extends('layout_master')
 
 @section('content')
-    <h1>Admin - Bookings</h1>
+    <h1>Admin Dashboard</h1>
 
-    @if (session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
-
-    @if (!isset($bookings) || $bookings->isEmpty())
-        <p>No bookings found.</p>
-    @else
-        <div class="table-responsive">
-            <table class="table table-striped align-middle">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Service</th>
-                        <th>Company</th>
-                        <th>Email</th>
-                        <th>Start</th>
-                        <th>End</th>
-                        <th>Created at</th>
-                        <th class="text-end">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($bookings as $booking)
-                        <tr>
-                            <td>{{ $booking->id }}</td>
-                            <td>{{ $booking->service_type }}</td>
-                            <td>{{ $booking->company_name }}</td>
-                            <td>{{ $booking->email }}</td>
-                            <td>{{ $booking->start_date }}</td>
-                            <td>{{ $booking->end_date }}</td>
-                            <td>{{ $booking->created_at->format('Y-m-d') }}</td>
-                            <td class="text-end">
-                                <a href="{{ route('bookings.edit', $booking->id) }}" class="btn btn-sm btn-warning">
-                                    Edit
-                                </a>
-
-                                <form action="
-                        " method="POST" class="d-inline"
-                                    onsubmit="return confirm('Delete this booking?');">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-sm btn-danger">
-                                        Delete
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+    <div class="row mt-4">
+        <div class="col-md-6 mb-3">
+            <div class="card h-100">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Bookings</h5>
+                    <p class="card-text">
+                        View and manage all service bookings submitted by clients.
+                    </p>
+                    <a href="{{ route('admin.booking_list') }}" class="btn btn-primary mt-auto">
+                        Go to bookings list
+                    </a>
+                </div>
+            </div>
         </div>
-    @endif
+
+        <div class="col-md-6 mb-3">
+            <div class="card h-100">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Contact Messages</h5>
+                    <p class="card-text">
+                        Review and respond to contact messages from partners and clients.
+                    </p>
+                    <a href="{{ route('admin.contact_list') }}" class="btn btn-secondary mt-auto">
+                        Go to contacts list
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

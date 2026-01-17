@@ -18,8 +18,9 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-          $this->call([
-        BookingSeeder::class,
+        $this->call([
+            BookingSeeder::class,
+            UserSeeder::class,
     ]);
     }
 }

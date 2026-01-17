@@ -5,40 +5,43 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="{{ asset('images/laboratory-supplies-medical-work.jpg') }}" class="d-block w-100" alt="Cleanroom">
-
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Cleanroom</h5>
-                    <p>Ambientes controlados para produção farmacêutica.</p>
+                    <p>Controlled environments for pharmaceutical production.</p>
                 </div>
             </div>
-            <div class="carousel-item">
-                <img src="{{ asset('images/businesspeople-office-meeting.jpg') }}" alt="Lab Equipment">
 
+            <div class="carousel-item">
+                <img class="d-block w-100"
+                    src="{{ asset('images/medium-shot-woman-working-beer-factory.jpg') }}"
+                    alt="Lab Equipment">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Lab Equipment</h5>
-                    <p>Equipamentos de última geração para I&D.</p>
+                    <p>State-of-the-art equipment for R&amp;D.</p>
                 </div>
             </div>
+
             <div class="carousel-item">
-                <img src="{{asset('images/factory-workers-white-lab-suits-black-latex-gloves-working-with-some-modern-equipment-very-clean-room.jpg')}}" alt="Production Line">
-
-
+                <img class="d-block w-100"
+                    src="{{ asset('images/factory-workers-white-lab-suits-black-latex-gloves-working-with-some-modern-equipment-very-clean-room.jpg') }}"
+                    alt="Quality Testing">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Quality Testing</h5>
-                    <p>Ensaios de qualidade certificados.</p>
+                    <p>Certified quality testing.</p>
                 </div>
             </div>
+
             <div class="carousel-item">
-                <img src="{{asset('images/professional-technologist-white-protective-uniform-controlling-industrial-process-production-plant.jpg')}}"
-                    class="img-fluid rounded mb-3" alt="Storage">
-
-
+                <img class="d-block w-100"
+                    src="{{ asset('images/professional-technologist-white-protective-uniform-controlling-industrial-process-production-plant.jpg') }}"
+                    alt="Production Line">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Production Line</h5>
-                    <p>Linhas de produção flexíveis e escaláveis.</p>
+                    <p>Flexible and scalable production lines.</p>
                 </div>
             </div>
         </div>
+
         <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
         </button>
@@ -87,7 +90,7 @@
                         <div class="collapse" id="service{{ $index }}">
                             <p class="small">{{ $service['long'] }}</p>
                         </div>
-                        <a href="" class="btn btn-primary">Book Service</a>
+                        <a href="{{ route('client.booking_form') }}" class="btn btn-primary">Book Service</a>
                     </div>
                 </div>
             </div>

@@ -16,14 +16,32 @@
             </button>
             <div class="collapse navbar-collapse" id="nav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Booking</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('pages.about')}}">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.home') }}">Admin</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('client.home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('client.gallery') }}">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('client.booking_form') }}">Booking</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('client.about') }}">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('client.contact')}}">Contact</a></li>
+                    {{-- Link Admin só para autenticados (opcional) --}}
+                    @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.home') }}">Admin</a>
+                        </li>
+                    @endauth
+
+                    {{-- AQUI entra o login/logout --}}
+                    <li class="nav-item">
+                        @auth
+                            <form method="POST" action="{{ route('logout') }}" class="d-inline">
+                                @csrf
+                                <button type="submit" class="btn btn-link nav-link">Logout</button>
+                            </form>
+                        @else
+                            <a href="{{ route('login') }}" class="nav-link">Login</a>
+                        @endauth
+                    </li>
                 </ul>
             </div>
+
         </div>
     </nav>
 
